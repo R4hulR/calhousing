@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Median House Value</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Median House Value</h1>
+        <form id="prediction-form">
+            <div class="form-group">
+                <label for="medInc">Median Income:</label>
+                <input type="number" id="medInc" name="medInc" step="0.0001" required>
+            </div>
+            <div class="form-group">
+                <label for="houseAge">House Age (Years):</label>
+                <input type="number" id="houseAge" name="houseAge" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <label for="aveRooms">Average Rooms per Dwelling:</label>
+                <input type="number" id="aveRooms" name="aveRooms" step="0.000001" required>
+            </div>
+            <div class="form-group">
+                <label for="aveBedrms">Average Bedrooms per Dwelling:</label>
+                <input type="number" id="aveBedrms" name="aveBedrms" step="0.000001" required>
+            </div>
+            <div class="form-group">
+                <label for="population">Population per Town:</label>
+                <input type="number" id="population" name="population" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <label for="aveOccup">Average Occupancy per Dwelling:</label>
+                <input type="number" id="aveOccup" name="aveOccup" step="0.000001" required>
+            </div>
+            <div class="form-group">
+                <label for="latitude">Latitude:</label>
+                <input type="number" id="latitude" name="latitude" step="0.000001" required>
+            </div>
+            <div class="form-group">
+                <label for="longitude">Longitude:</label>
+                <input type="number" id="longitude" name="longitude" step="0.000001" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        <div id="prediction-result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
