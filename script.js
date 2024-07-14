@@ -10,7 +10,7 @@ const inputLongitude = document.getElementById('longitude');
 const predictionResult = document.getElementById('prediction-result');
 
 form.addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); 
 
     const medInc = parseFloat(inputMedInc.value);
     const houseAge = parseFloat(inputHouseAge.value);
@@ -26,7 +26,7 @@ form.addEventListener('submit', async (event) => {
         isNaN(aveBedrms) || isNaN(population) || isNaN(aveOccup) || 
         isNaN(latitude) || isNaN(longitude)) {
         predictionResult.textContent = 'Error: Please enter valid numbers for all fields.';
-        return; // Exit if validation fails
+        return; 
     }
 
     const data = {
@@ -37,7 +37,7 @@ form.addEventListener('submit', async (event) => {
         const response = await fetch('https://rahulray.us-east-1.modelbit.com/v1/predict_median_house_value/latest', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data) // Send as JSON
+            body: JSON.stringify(data) 
         });
 
         if (!response.ok) {
@@ -45,13 +45,13 @@ form.addEventListener('submit', async (event) => {
         }
 
         const prediction = await response.json();
-        console.log(prediction); // Log to inspect the structure
-        const predictedValue = prediction.data * 100000; // Multiply by 100,000
+        //console.log(prediction); 
+        const predictedValue = prediction.data * 100000; 
         predictionResult.textContent = `Predicted Median House Value: $${predictedValue.toFixed(2)}`; // Format as currency
     } catch (error) {
         console.error('Error:', error);
         predictionResult.textContent = 'Error: Could not make prediction.';
     } finally {
-        form.reset(); // Reset the form after submission (optional)
+        form.reset();
     }
 });
